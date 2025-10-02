@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
@@ -35,12 +36,52 @@
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-          <h1>Votre liberté d'entreprendre, notre mission</h1>
-          <p class="lead">CoachLibre est la plateforme qui accompagne les coachs pour développer, organiser et simplifier leur activité — en toute liberté.</p>
+          <h1>La plateforme qui libère les coachs de l’opérationnel – on veut vous simplifier la vie en réduisant le nombre d’outils.</h1>
+          <p class="lead">Passez moins de temps à prospecter, concentrez-vous sur vos clients et profitez de plus de temps de qualité avec vos proches.</p>
+          <p class="muted" style="margin:.5rem 0 1.25rem;opacity:.9">Un copilote qui assiste le coach au quotidien.</p>
+
           <form id="waitlist-form" class="waitlist" aria-describedby="privacy-note" novalidate>
-            <label class="sr-only" for="email">Adresse e‑mail</label>
-            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre e‑mail" required />
-            <button type="submit">Rejoindre la liste d'attente</button>
+            <div class="tw-grid tw-gap-3 tw-w-full" style="display:grid;gap:12px;width:100%">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                <div>
+                  <label class="sr-only" for="firstName">Prénom</label>
+                  <input id="firstName" name="firstName" type="text" autocomplete="given-name" placeholder="Prénom" required />
+                </div>
+                <div>
+                  <label class="sr-only" for="lastName">Nom</label>
+                  <input id="lastName" name="lastName" type="text" autocomplete="family-name" placeholder="Nom" required />
+                </div>
+              </div>
+              <div>
+                <label class="sr-only" for="email">Adresse e‑mail</label>
+                <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre e‑mail" required />
+              </div>
+              <div style="display:flex;align-items:center;gap:10px">
+                <input id="optin" name="optin" type="checkbox" checked />
+                <label for="optin">J’accepte de recevoir des emails liés à ce projet.</label>
+              </div>
+              <fieldset style="border:1px solid rgba(255,255,255,.1);padding:14px;border-radius:10px">
+                <legend style="padding:0 6px;color:var(--muted)">Votre feedback</legend>
+                <div style="display:grid;gap:12px">
+                  <div>
+                    <label for="q1">Quel est votre plus gros défi aujourd’hui en tant que coach ?</label>
+                    <textarea id="q1" name="q1" rows="3" placeholder="Votre réponse..."></textarea>
+                  </div>
+                  <div>
+                    <label for="q2">Quels outils utilisez-vous déjà ?</label>
+                    <input id="q2" name="q2" type="text" placeholder="Ex: Notion, Calendly, Stripe..." />
+                  </div>
+                  <div>
+                    <span>Voulez-vous tester la version beta en priorité ?</span>
+                    <div style="display:flex;gap:14px;margin-top:6px">
+                      <label><input type="radio" name="betaPriority" value="oui" checked /> Oui</label>
+                      <label><input type="radio" name="betaPriority" value="non" /> Non</label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+              <button type="submit">Je rejoins la liste d'attente</button>
+            </div>
             <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
             <p id="privacy-note" class="privacy-note">En vous inscrivant, vous acceptez de recevoir des nouvelles du projet. Vous pouvez vous désinscrire à tout moment.</p>
           </form>
@@ -50,6 +91,15 @@
           <div class="blob b1"></div>
           <div class="blob b2"></div>
           <div class="blob b3"></div>
+        </div>
+      </div>
+    <section id="social-proof" class="features">
+      <div class="container">
+        <h2>Ils nous font confiance</h2>
+        <div class="grid" aria-hidden="true">
+          <article class="card" style="height:72px;display:flex;align-items:center;justify-content:center;opacity:.7">Logo 1</article>
+          <article class="card" style="height:72px;display:flex;align-items:center;justify-content:center;opacity:.7">Logo 2</article>
+          <article class="card" style="height:72px;display:flex;align-items:center;justify-content:center;opacity:.7">Logo 3</article>
         </div>
       </div>
     </section>
@@ -77,17 +127,19 @@
       </div>
     </section>
 
-    <section id="waitlist" class="cta">
+    <section id="coming-soon" class="cta">
       <div class="container cta-inner">
-        <h2>Envie d'être informé·e du lancement ?</h2>
-        <p>Inscrivez votre e‑mail pour rejoindre la liste d'attente et recevoir les premières nouvelles.</p>
-        <form id="waitlist-form-2" class="waitlist" aria-describedby="privacy-note-2" novalidate>
-          <label class="sr-only" for="email-2">Adresse e‑mail</label>
-          <input id="email-2" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre e‑mail" required />
-          <button type="submit">Je m'inscris</button>
-          <p id="form-feedback-2" class="form-feedback" role="status" aria-live="polite"></p>
-          <p id="privacy-note-2" class="privacy-note">Nous respectons votre vie privée. Pas de spam, jamais.</p>
-        </form>
+        <h2>Bientôt disponible</h2>
+        <p>Possibilité de tester la beta avec inscription prioritaire.</p>
+        <div class="mockup" aria-hidden="true" style="margin-top:16px;display:flex;justify-content:center">
+          <svg width="420" height="240" viewBox="0 0 420 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+            <rect width="420" height="240" rx="16" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+            <rect x="24" y="24" width="372" height="36" rx="8" fill="rgba(90,135,216,0.25)" />
+            <rect x="24" y="72" width="210" height="18" rx="6" fill="rgba(255,255,255,0.08)" />
+            <rect x="24" y="100" width="180" height="18" rx="6" fill="rgba(255,255,255,0.08)" />
+            <rect x="24" y="132" width="300" height="56" rx="10" fill="rgba(62,201,198,0.25)" />
+          </svg>
+        </div>
       </div>
     </section>
   </main>
@@ -102,7 +154,7 @@
       <nav class="legal">
         <a href="#" aria-disabled="true" tabindex="-1">Mentions légales</a>
         <a href="#" aria-disabled="true" tabindex="-1">Confidentialité</a>
-        <a href="mailto:contact@coachlibre.app">Contact</a>
+        <a href="mailto:contact@coachlibre.com">Contact</a>
       </nav>
     </div>
   </footer>
