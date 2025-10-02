@@ -1,11 +1,11 @@
 :root{
-  --bg:#0e0f12;          /* very dark, near-black */
-  --card:#15171c;       /* dark card */
-  --text:#e9eef4;       /* off-white */
-  --muted:#b6c2d1;      /* muted text */
-  --primary:#6f87ff;    /* indigo/blue accent */
-  --primary-2:#9c6bff;  /* purple accent */
-  --accent:#00d4b3;     /* teal accent */
+  --bg:#0e0f12;
+  --card:#15171c;
+  --text:#e9eef4;
+  --muted:#b6c2d1;
+  --primary:#5A87D8;    /* brand blue */
+  --primary-2:#3EC9C6;  /* brand teal */
+  --accent:#0C6BB3;     /* deep blue */
   --danger:#ff6b6b;
   --radius:14px;
   --shadow:0 10px 25px rgba(0,0,0,.35);
@@ -29,9 +29,9 @@ img{max-width:100%;display:block}
 .site-header{position:sticky;top:0;backdrop-filter:blur(10px);background:rgba(14,15,18,.5);border-bottom:1px solid rgba(255,255,255,.06);z-index:10}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .brand{display:flex;align-items:center;gap:10px;color:var(--text);text-decoration:none;font-weight:700;font-size:1.25rem}
-.brand .brand-mark{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--primary-2));box-shadow:0 6px 14px rgba(111,135,255,.35)}
-.brand.small .brand-mark{width:22px;height:22px}
-.brand .brand-text{text-transform:lowercase;letter-spacing:.5px}
+.brand .brand-logo{display:block}
+.brand .brand-text{letter-spacing:.3px}
+.brand.small .brand-logo{width:22px;height:22px}
 .site-nav{display:flex;gap:18px}
 .site-nav a{color:var(--muted);text-decoration:none;font-weight:500}
 .site-nav a:hover{color:var(--text)}
