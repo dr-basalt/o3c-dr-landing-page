@@ -1,0 +1,27 @@
+# Dokploy application configuration for a static site
+# Build Type: Static
+# This serves files from the repository root (index.html at /)
+# and can be auto-redeployed on push via Dokploy's repo listener.
+
+version: 1
+name: coachlibre-landing
+
+static:
+  buildType: Static
+  publishDir: "."
+  # Optional: custom headers
+  headers:
+    - path: "/"
+      headers:
+        - name: "Cache-Control"
+          value: "public, max-age=600"
+        - name: "X-Frame-Options"
+          value: "SAMEORIGIN"
+  # Optional: error/redirect handling
+  routes:
+    - path: "/**"
+      status: 200
+
+# Notes:
+# - Dokploy should be set to watch your GitHub repo/branch.
+# - On each push, Dokploy will rebuild and redeploy static assets from publishDir.

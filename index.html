@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CoachLibre — Bientôt disponible</title>
+  <meta name="description" content="CoachLibre accompagne les coachs dans leur liberté d'entreprendre. Inscrivez-vous à la liste d'attente pour être informé du lancement." />
+  <meta property="og:title" content="CoachLibre — Bientôt disponible" />
+  <meta property="og:description" content="La plateforme qui accompagne les coachs dans leur liberté d'entreprendre." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://coachlibre.app/" />
+  <meta property="og:image" content="/assets/logo-coachlibre.svg" />
+  <link rel="icon" href="/assets/logo-coachlibre.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Accueil CoachLibre">
+        <img class="brand-logo" src="/assets/logo-coachlibre.svg" alt="CoachLibre" width="28" height="28" />
+        <span class="brand-text">CoachLibre</span>
+      </a>
+      <nav class="site-nav">
+        <a href="#features">Fonctionnalités</a>
+        <a href="#waitlist">Liste d'attente</a>
+        <a class="ig-link" href="https://www.instagram.com/_coach_libre_/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Votre liberté d'entreprendre, notre mission</h1>
+          <p class="lead">CoachLibre est la plateforme qui accompagne les coachs pour développer, organiser et simplifier leur activité — en toute liberté.</p>
+          <form id="waitlist-form" class="waitlist" aria-describedby="privacy-note" novalidate>
+            <label class="sr-only" for="email">Adresse e‑mail</label>
+            <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre e‑mail" required />
+            <button type="submit">Rejoindre la liste d'attente</button>
+            <p id="form-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+            <p id="privacy-note" class="privacy-note">En vous inscrivant, vous acceptez de recevoir des nouvelles du projet. Vous pouvez vous désinscrire à tout moment.</p>
+          </form>
+          <div class="social-cta">
+            <a class="button secondary" href="https://www.instagram.com/_coach_libre_/" target="_blank" rel="noopener">Suivre sur Instagram</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="blob b1"></div>
+          <div class="blob b2"></div>
+          <div class="blob b3"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="container">
+        <h2>Conçu pour les coachs, pensé pour la liberté</h2>
+        <div class="grid">
+          <article class="card">
+            <div class="icon" aria-hidden="true">📈</div>
+            <h3>Développez votre activité</h3>
+            <p>Outils pour votre visibilité et votre acquisition: pages publiques, offres, prises de rendez‑vous.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🗂️</div>
+            <h3>Organisez vos clients</h3>
+            <p>Suivi centralisé des clients, séances, ressources et objectifs — le tout au même endroit.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">💳</div>
+            <h3>Simplifiez l'administratif</h3>
+            <p>Facturation, paiements et documents pratiques pour gagner du temps sur l'opérationnel.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="waitlist" class="cta">
+      <div class="container cta-inner">
+        <h2>Envie d'être informé·e du lancement ?</h2>
+        <p>Inscrivez votre e‑mail pour rejoindre la liste d'attente et recevoir les premières nouvelles.</p>
+        <form id="waitlist-form-2" class="waitlist" aria-describedby="privacy-note-2" novalidate>
+          <label class="sr-only" for="email-2">Adresse e‑mail</label>
+          <input id="email-2" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Votre e‑mail" required />
+          <button type="submit">Je m'inscris</button>
+          <p id="form-feedback-2" class="form-feedback" role="status" aria-live="polite"></p>
+          <p id="privacy-note-2" class="privacy-note">Nous respectons votre vie privée. Pas de spam, jamais.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand small" href="#" aria-label="CoachLibre">
+        <img class="brand-logo" src="/assets/logo-coachlibre.svg" alt="CoachLibre" width="22" height="22" />
+        <span class="brand-text">CoachLibre</span>
+      </a>
+      <p class="copyright">© <span id="year"></span> CoachLibre. Tous droits réservés.</p>
+      <nav class="legal">
+        <a href="#" aria-disabled="true" tabindex="-1">Mentions légales</a>
+        <a href="#" aria-disabled="true" tabindex="-1">Confidentialité</a>
+        <a href="mailto:contact@coachlibre.app">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
