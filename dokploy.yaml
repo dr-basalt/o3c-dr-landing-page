@@ -6,21 +6,15 @@
 version: 1
 name: coachlibre-landing
 
-static:
-  buildType: Static
-  publishDir: "."
-  # Optional: custom headers
-  headers:
-    - path: "/"
-      headers:
-        - name: "Cache-Control"
-          value: "public, max-age=600"
-        - name: "X-Frame-Options"
-          value: "SAMEORIGIN"
-  # Optional: error/redirect handling
-  routes:
-    - path: "/**"
-      status: 200
+dockerfile:
+  buildType: Dockerfile
+  context: "."
+  dockerfilePath: "./Dockerfile"
+  # Dokploy will expose the container through Traefik. Internal port must match Nginx listen.
+  internalPort: 80
+  env: []
+  # Optional healthcheck path (dokploy may support custom checks depending on version)
+  healthcheckPath: "/"
 
 # Notes:
 # - Dokploy should be set to watch your GitHub repo/branch.
