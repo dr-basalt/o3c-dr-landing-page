@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CoachLibre — Carte de visite</title>
+  <meta name="description" content="Scannez le QR code pour ouvrir CoachLibre et installer la webapp sur votre smartphone." />
+  <meta property="og:title" content="CoachLibre — Carte de visite" />
+  <meta property="og:description" content="Scannez le QR code pour ouvrir CoachLibre et installer la webapp sur votre smartphone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.coachlibre.com/index2.html" />
+  <meta property="og:image" content="/assets/logo-coachlibre.svg" />
+  <link rel="icon" href="/assets/pwa/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/assets/pwa/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="#5A87D8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Accueil CoachLibre">
+        <img class="brand-logo" src="/assets/logo-coachlibre.svg" alt="CoachLibre" width="28" height="28" />
+        <span class="brand-text">CoachLibre</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/">Accueil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>CoachLibre — Carte de visite</h1>
+          <p class="lead">Scannez le QR code en bas de page pour ouvrir www.coachlibre.com et ajouter CoachLibre à votre écran d’accueil.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="blob b1"></div>
+          <div class="blob b2"></div>
+          <div class="blob b3"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner" style="flex-direction:column;align-items:flex-start;gap:16px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img class="brand-logo" src="/assets/logo-coachlibre.svg" alt="CoachLibre" width="22" height="22" />
+        <span class="brand-text">CoachLibre</span>
+      </div>
+      <p class="copyright">© <span id="year"></span> CoachLibre. Tous droits réservés.</p>
+      <nav class="legal" style="margin-bottom:8px">
+        <a href="#" aria-disabled="true" tabindex="-1">Mentions légales</a>
+        <a href="#" aria-disabled="true" tabindex="-1">Confidentialité</a>
+        <a href="mailto:contact@coachlibre.com">Contact</a>
+      </nav>
+      <div class="card" style="display:flex; gap:16px; align-items:center;">
+        <img src="/assets/pwa/coachlibre-qr.png" alt="QR code CoachLibre" width="160" height="160" />
+        <div>
+          <h3 style="margin:0 0 6px">Scannez pour ouvrir CoachLibre</h3>
+          <p style="margin:0">Ouvrez www.coachlibre.com et installez la webapp depuis votre navigateur.</p>
+          <ul style="margin:8px 0 0; padding-left:18px; color:var(--muted)">
+            <li>Android (Chrome): Menu (⋮) → Installer l’application</li>
+            <li>iPhone/iPad (Safari): Partager → Sur l’écran d’accueil</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">import {registerServiceWorker} from '/pwa-register.js'; registerServiceWorker();</script>
+</body>
+</html>
