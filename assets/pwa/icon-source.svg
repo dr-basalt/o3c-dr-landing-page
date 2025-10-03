@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">CoachLibre</title>
+  <defs>
+    <filter id="s" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+      <feOffset in="blur" dx="0" dy="2" result="offset"/>
+      <feMerge>
+        <feMergeNode in="offset"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Simple leaf shape used three times -->
+  <g filter="url(#s)">
+    <!-- Left leaf (deep blue) -->
+    <path d="M18 0 C 28 10, 32 22, 18 40 C 4 22, 8 10, 18 0 Z" fill="#0C6BB3" transform="translate(14,34) rotate(-35 18 20)"/>
+    <!-- Top leaf (blue) -->
+    <path d="M18 0 C 28 10, 32 22, 18 40 C 4 22, 8 10, 18 0 Z" fill="#5A87D8" transform="translate(30,8) rotate(8 18 20)"/>
+    <!-- Right leaf (teal/cyan) -->
+    <path d="M18 0 C 28 10, 32 22, 18 40 C 4 22, 8 10, 18 0 Z" fill="#3EC9C6" transform="translate(44,30) rotate(28 18 20)"/>
+  </g>
+</svg>

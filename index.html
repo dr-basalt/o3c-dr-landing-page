@@ -10,10 +10,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://coachlibre.app/" />
   <meta property="og:image" content="/assets/logo-coachlibre.svg" />
-  <link rel="icon" href="/assets/logo-coachlibre.svg" type="image/svg+xml" />
+  <link rel="icon" href="/assets/pwa/icon-192.png" sizes="192x192" />
+  <link rel="apple-touch-icon" href="/assets/pwa/apple-touch-icon.png" sizes="180x180" />
+  <link rel="manifest" href="/manifest.webmanifest" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#5A87D8" />
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
@@ -78,6 +81,15 @@
         <p>Inscrivez votre e‑mail pour rejoindre la liste d'attente et recevoir les premières nouvelles.</p>
         <script src="https://js-eu1.hsforms.net/forms/embed/146557601.js" defer></script>
         <div class="hs-form-frame" data-region="eu1" data-form-id="295272e3-883f-40ad-a1ef-2a7bbe9ce13d" data-portal-id="146557601"></div>
+    <section class="cta">
+      <div class="container cta-inner" style="margin-top:16px; display:flex; gap:16px; align-items:center;">
+        <img src="/assets/pwa/coachlibre-qr.png" alt="QR code CoachLibre" width="128" height="128" />
+        <div>
+          <h3>Installer sur votre smartphone</h3>
+          <p>Scannez ce QR code pour ouvrir www.coachlibre.com et ajouter CoachLibre à votre écran d’accueil.</p>
+        </div>
+      </div>
+    </section>
       </div>
     </section>-->
   </main>
@@ -92,11 +104,12 @@
       <nav class="legal">
         <a href="#" aria-disabled="true" tabindex="-1">Mentions légales</a>
         <a href="#" aria-disabled="true" tabindex="-1">Confidentialité</a>
-        <a href="mailto:contact@coachlibre.app">Contact</a>
+        <a href="mailto:contact@coachlibre.com">Contact</a>
       </nav>
     </div>
   </footer>
 
+  <script type="module">import {registerServiceWorker} from '/pwa-register.js'; registerServiceWorker();</script>
   <script src="/app.js" defer></script>
 </body>
 </html>
