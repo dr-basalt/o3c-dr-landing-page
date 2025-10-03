@@ -2,7 +2,7 @@ const form = document.getElementById('waitlist-form');
 const feedbackEl = document.getElementById('form-feedback');
 const YEAR_EL = document.getElementById('year');
 
-const TWENTY_API = 'https://crm.ori3com.cloud/api/twentycrm';
+const TWENTY_API = '/api/twentycrm';
 const TWENTY_API_KEY = undefined; // Do NOT hardcode secrets in frontend. Use Dokploy env if needed.
 
 function sanitize(s){return (s||'').toString().trim()}
