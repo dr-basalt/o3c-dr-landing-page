@@ -1,43 +1,79 @@
-const forms = [
-  document.getElementById('waitlist-form'),
-  document.getElementById('waitlist-form-2')
-].filter(Boolean);
+const form = document.getElementById('waitlist-form');
+const feedbackEl = document.getElementById('form-feedback');
+const YEAR_EL = document.getElementById('year');
 
-const FORM_ENDPOINT = 'https://formspree.io/f/mayvvkgl'; // TODO: replace with your own endpoint
+const TWENTY_API = '/api/twentycrm';
+const TWENTY_API_KEY = undefined; // Do NOT hardcode secrets in frontend. Use Dokploy env if needed.
 
-forms.forEach((form) => {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const emailInput = form.querySelector('input[name="email"]');
-    const feedback = form.querySelector('.form-feedback');
-    feedback.textContent = '';
+function sanitize(s){return (s||'').toString().trim()}
+function isEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
 
-    const email = (emailInput?.value || '').trim();
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      feedback.style.color = 'var(--danger)';
-      feedback.textContent = 'Veuillez saisir une adresse e‑mail valide.';
-      return;
-    }
-
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
-      });
-
-      if (res.ok) {
-        feedback.style.color = 'var(--accent)';
-        feedback.textContent = 'Merci ! Vous êtes bien inscrit·e.';
-        emailInput.value = '';
-      } else {
-        throw new Error('Request failed');
-      }
-    } catch (err) {
-      feedback.style.color = 'var(--danger)';
-      feedback.textContent = "Une erreur s'est produite. Réessayez plus tard.";
-    }
+async function submitTwenty(payload){
+  const res = await fetch(TWENTY_API, {
+    method: 'POST',
+    headers: {
+      'Content-Type':'application/json',
+      ...(TWENTY_API_KEY ? { 'Authorization': `Bearer ${TWENTY_API_KEY}` } : {})
+    },
+    body: JSON.stringify(payload)
   });
+  return res;
+}
+
+form?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  feedbackEl.textContent = '';
+
+  const firstName = sanitize(document.getElementById('firstName')?.value);
+  const lastName  = sanitize(document.getElementById('lastName')?.value);
+  const email     = sanitize(document.getElementById('email')?.value);
+  const optin     = !!document.getElementById('optin')?.checked;
+  const q1        = sanitize(document.getElementById('q1')?.value);
+  const q2        = sanitize(document.getElementById('q2')?.value);
+  const beta      = (document.querySelector('input[name="betaPriority"]:checked')?.value) || 'oui';
+
+  if(!firstName || !lastName){
+    feedbackEl.style.color = 'var(--danger)';
+    feedbackEl.textContent = 'Merci de renseigner prénom et nom.';
+    return;
+  }
+  if(!isEmail(email)){
+    feedbackEl.style.color = 'var(--danger)';
+    feedbackEl.textContent = 'Veuillez saisir une adresse e‑mail valide.';
+    return;
+  }
+
+  const payload = {
+    firstName,
+    lastName,
+    email,
+    optin,
+    feedback: {
+      challenge: q1,
+      tools: q2,
+      betaPriority: beta
+    }
+  };
+
+  try{
+    const res = await submitTwenty(payload);
+    if(res.ok){
+      feedbackEl.style.color = 'var(--accent)';
+      feedbackEl.textContent = 'Merci ! Vous êtes bien inscrit·e.';
+      (document.getElementById('firstName').value = '');
+      (document.getElementById('lastName').value = '');
+      (document.getElementById('email').value = '');
+      (document.getElementById('optin').checked = true);
+      (document.getElementById('q1').value = '');
+      (document.getElementById('q2').value = '');
+      (document.querySelector('input[name="betaPriority"][value="oui"]').checked = true);
+    } else {
+      throw new Error('Request failed');
+    }
+  } catch(err){
+    feedbackEl.style.color = 'var(--danger)';
+    feedbackEl.textContent = "Une erreur s'est produite. Réessayez plus tard.";
+  }
 });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+YEAR_EL.textContent = new Date().getFullYear();

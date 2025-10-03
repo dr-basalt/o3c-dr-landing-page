@@ -1,0 +1,45 @@
+server {
+  listen 80;
+  server_name _;
+
+  root /usr/share/nginx/html;
+  index index.html;
+
+  # Serve static files and SPA fallback
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  # Reverse proxy to TwentyCRM API
+  location /api/twentycrm {
+    proxy_pass https://crm.ori3com.cloud/api/twentycrm;
+    proxy_http_version 1.1;
+    proxy_set_header Host crm.ori3com.cloud;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_ssl_server_name on;
+
+    # Inject Authorization from environment variable
+    proxy_set_header Authorization "Bearer ${TWENTY_API_KEY}";
+
+    # CORS (optional if same-origin; safe to include for API route)
+    add_header Access-Control-Allow-Origin "*" always;
+    add_header Access-Control-Allow-Methods "GET, POST, OPTIONS" always;
+    add_header Access-Control-Allow-Headers "Authorization, Content-Type" always;
+
+    if ($request_method = OPTIONS) {
+      return 204;
+    }
+  }
+
+  # Security headers
+  add_header X-Frame-Options "SAMEORIGIN" always;
+  add_header X-Content-Type-Options "nosniff" always;
+  add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+  # Future: easy 301 redirection example
+  # location = /waitlist {
+  #   return 301 /;
+  # }
+}

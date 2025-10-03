@@ -12,7 +12,9 @@ dockerfile:
   dockerfilePath: "./Dockerfile"
   # Dokploy will expose the container through Traefik. Internal port must match Nginx listen.
   internalPort: 80
-  env: []
+  env:
+    - key: TWENTY_API_KEY
+      value: "${TWENTY_API_KEY}" # configure in Dokploy UI/Secrets
   # Optional healthcheck path (dokploy may support custom checks depending on version)
   healthcheckPath: "/"
 
